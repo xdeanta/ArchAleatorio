@@ -30,7 +30,7 @@ public class Main {
         String cod="";
         String desc="";
         int precio;
-        /*Product[] prod=new Product[3];
+        Product[] prod=new Product[3];
         f.seek(0); //Lectura desde el principio del fichero
         
         for(int j=0;j<3;j++){ // bucle para recorrer cada registo sabiendo el numero total de registros
@@ -39,20 +39,20 @@ public class Main {
                 in=f.readChar();
                 cod=cod+in;
             }
-            cod=cod.replace("0","");
+            cod=cod.replace("0",""); //Saneamiento del string cod
             for(int i=0;i<10;i++) {
                 in=f.readChar();
                 desc=desc+in;
             }
-            desc=desc.replaceAll("0","");
+            desc=desc.replaceAll("0",""); //Saneamiento del string desc
             precio=f.readInt();
-            prod[j]=new Product(cod,desc,precio);
+            prod[j]=new Product(cod,desc,precio); //se crea el objeto con los datos extraidos del fichero
             cod= desc ="";
         }
         for(int i=0;i<3;i++){
             System.out.println(prod[i]);
         }
-        */
+        /*
         // Acceso al registro de producto 2 dentro del fichero
         f.seek((2-1)*30); // formula: (posicion-1)*30 bytes para el indexado dentro del archivo
         for(int i=0;i<3;i++){ //campo codigo
@@ -66,13 +66,10 @@ public class Main {
         //Saneamiento de los strings
         cod=cod.replaceAll("0", ""); 
         desc=desc.replaceAll("0", "");
-        precio=f.readInt();
-        /*System.out.println(cod);
-        System.out.println(desc);
-        System.out.println(precio);*/
+        precio=f.readInt();   
         //Creacion es objeto producto
         Product p2 = new Product(cod,desc,precio);
-        System.out.println(p2);
+        System.out.println(p2);*/
         f.close();
     }
 }
