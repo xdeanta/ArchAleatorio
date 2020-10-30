@@ -67,9 +67,12 @@ public class Main {
         }
         cod=cod.replaceAll("0", "");
         desc=desc.replaceAll("0", "");
-        System.out.println(cod);
+        precio=f.readInt();
+        /*System.out.println(cod);
         System.out.println(desc);
-        System.out.println(f.readInt());
+        System.out.println(precio);*/
+        Product p2 = new Product(cod,desc,precio);
+        System.out.println(p2);
         f.close();
     }
 }
