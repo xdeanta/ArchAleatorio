@@ -33,9 +33,9 @@ public class Main {
         String cod="";
         String desc="";
         int precio;
-        Product[] prod=new Product[3];
+        /*Product[] prod=new Product[3];
         f.seek(0);
-
+        
         for(int j=0;j<3;j++){
             for(int i=0;i<3;i++) {
                 in=f.readChar();
@@ -54,6 +54,22 @@ public class Main {
         for(int i=0;i<3;i++){
             System.out.println(prod[i]);
         }
+        //System.out.println(f.length
+        */
+        f.seek((2-1)*30);
+        for(int i=0;i<3;i++){
+            in=f.readChar();
+            cod=cod+in;
+        }
+        for(int i=0;i<10;i++){
+            in=f.readChar();
+            desc=desc+in;
+        }
+        cod=cod.replaceAll("0", "");
+        desc=desc.replaceAll("0", "");
+        System.out.println(cod);
+        System.out.println(desc);
+        System.out.println(f.readInt());
         f.close();
     }
 }
