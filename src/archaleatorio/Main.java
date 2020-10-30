@@ -23,9 +23,6 @@ public class Main {
             f.writeChars(aux);
             f.writeInt(precios[i]);
         }
-        /*es una prueba de como funciona el seek()
-        f.seek(2);
-        System.out.println(f.readChar());*/
 
         //Lectura del fichero
 
@@ -34,9 +31,10 @@ public class Main {
         String desc="";
         int precio;
         /*Product[] prod=new Product[3];
-        f.seek(0);
+        f.seek(0); //Lectura desde el principio del fichero
         
-        for(int j=0;j<3;j++){
+        for(int j=0;j<3;j++){ // bucle para recorrer cada registo sabiendo el numero total de registros
+        //Se puede reemplazar con un indexado utilizando la formula: (Posicion-1)*tamaño del registro en bytes (30 bytes en este caso)
             for(int i=0;i<3;i++) {
                 in=f.readChar();
                 cod=cod+in;
@@ -54,23 +52,25 @@ public class Main {
         for(int i=0;i<3;i++){
             System.out.println(prod[i]);
         }
-        //System.out.println(f.length
         */
-        f.seek((2-1)*30);
-        for(int i=0;i<3;i++){
+        // Acceso al registro de producto 2 dentro del fichero
+        f.seek((2-1)*30); // formula: (posicion-1)*30 bytes para el indexado dentro del archivo
+        for(int i=0;i<3;i++){ //campo codigo
             in=f.readChar();
             cod=cod+in;
         }
-        for(int i=0;i<10;i++){
+        for(int i=0;i<10;i++){ // campo descripcion
             in=f.readChar();
             desc=desc+in;
         }
-        cod=cod.replaceAll("0", "");
+        //Saneamiento de los strings
+        cod=cod.replaceAll("0", ""); 
         desc=desc.replaceAll("0", "");
         precio=f.readInt();
         /*System.out.println(cod);
         System.out.println(desc);
         System.out.println(precio);*/
+        //Creacion es objeto producto
         Product p2 = new Product(cod,desc,precio);
         System.out.println(p2);
         f.close();
